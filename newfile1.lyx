@@ -25,9 +25,10 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -51,6 +52,10 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 3cm
+\topmargin 2.5cm
+\rightmargin 3cm
+\bottommargin 2.5cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -68,7 +73,205 @@
 
 \begin_body
 
+\begin_layout Title
+Battery Dimensioning Homework
+\end_layout
+
+\begin_layout Author
+Xavier Escribà Montagut
+\end_layout
+
+\begin_layout Date
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Address
+Arduino Course – P2
+\end_layout
+
 \begin_layout Standard
+Statement data:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{c}
+P_{load}=1W=cte\\
+R_{i}=0.12\Omega\\
+\eta=0.4=cte\\
+n=4\\
+Q=2000mAh\\
+AA\,in\,series(\epsilon=1.5V)
+\end{array}\right.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The problem we need to solve is the following one:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename esquema.png
+	width 14cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Having 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$n$
+\end_layout
+
+\end_inset
+
+ batteries connected in series, we can state:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c}
+Q_{total}=2000\,mAh\\
+\epsilon_{total}=n\text{·}\epsilon=6\,V
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the buck/boost performance:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\eta=\frac{P_{load}}{P_{\epsilon}}\rightarrow P_{\epsilon}=2.5\,W
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{\epsilon}=V_{\epsilon}I_{\epsilon}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Having an internal resistance, the voltage of the battery will be lower:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\epsilon}=6\,V-I_{\epsilon}R_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2.5\,W=(6\,V-I_{\epsilon}R_{i})I_{\epsilon}\rightarrow\left\{ \begin{array}{c}
+I_{\text{\epsilon1}}=49.58\,A\\
+I_{\epsilon2}=0.42\,A
+\end{array}\right.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The same problem without internal resistance yields an input current of
+ roughly 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$0.41
+\backslash
+,A$
+\end_layout
+
+\end_inset
+
+ so we will take as valid 
+\begin_inset Formula $I_{\epsilon2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Q_{total}=I_{\epsilon2}\text{·}t\rightarrow t=4.76\,h
+\]
+
+\end_inset
+
 
 \end_layout
 
